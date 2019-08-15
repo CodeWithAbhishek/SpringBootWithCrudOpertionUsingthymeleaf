@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Infromation Detalis</title>
+</head>
+<body >
+<div align="center">
+    <h1>Infromation Details</h1>
+
+
+    <a th:href="@{/}">  <b>Create new Information</b> </a>
+    <br/><br/>
+    <table border="2" cellpadding="10">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Action</th>
+            <th>Action</th>
+
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="infobean:${infodata}">
+            <td th:text="${infobean.id}"> ID</td>
+            <td th:text="${infobean.name}">Name</td>
+            <td th:text="${infobean.lname}">Last Name</td>
+            <td th:text="${infobean.ph}">Phone Number</td>
+            <td th:text="${infobean.email}">Email</td>
+
+            <td>
+                <a th:href="@{'/edit/' + ${infobean.id}}">Edit</a>
+           </td>
+
+            <td>
+                <a th:href="@{'/delete/' + ${infobean.id}}">Delete</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
